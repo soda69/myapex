@@ -5,7 +5,6 @@
 #include "Math.cpp"
 #include "Level.cpp"
 #include "X11Utils.cpp"
-#include "ConfigLoader.cpp"
 
 class NoRecoil
 {
@@ -43,7 +42,7 @@ public:
             return;
 
         // adjust pitch
-        const double norecoilPitchStrength = m_configLoader->getNorecoilPitchStrength();
+        const double norecoilPitchStrength = ((float)rand()/RAND_MAX)*(float)(0.10) + m_configLoader->getNorecoilPitchStrength();
         const double punchPitch = m_localPlayer->getPunchPitch();
         if (punchPitch != 0)
         {
@@ -54,7 +53,7 @@ public:
         }
 
         // adjust yaw
-        const double norecoilYawStrength = m_configLoader->getNorecoilYawStrength();
+        const double norecoilYawStrength = ((float)rand()/RAND_MAX)*(float)(0.10) + m_configLoader->getNorecoilYawStrength();
         const double punchYaw = m_localPlayer->getPunchYaw();
         if (punchYaw != 0)
         {
